@@ -199,11 +199,11 @@ public class SistemaSupermercado {
                     break;
                 
                 case "PROCESADA":
-                    pendientes++;
+                    procesadas++;
                     break;
                 
                 case "CANCELADA":
-                    pendientes++;
+                    canceladas++;
                     break;
                 
             }
