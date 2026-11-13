@@ -115,11 +115,19 @@ public class Main
 
             System.out.println("\n===== REGISTRAR COMPRA =====");
 
-            System.out.println("Numero de copia: ");
+            System.out.println("Numero de compra: ");
             int numeroCompra = Integer.parseInt(scanner.nextLine());
+
+            if (numeroCompra <= 0) {
+                throw new Exception("El numero de compra debe ser positivo");
+            }
 
             System.out.println("Nombre del cliente: ");
             String nombreCliente = scanner.nextLine();
+
+            if (nombreCliente.trim().isEmpty()) {
+                throw new Exception("El nombre del cliente no puede estar vacio");
+            }
 
             System.out.println("Fecha de compra (AÑO-MES-DIA): ");
             LocalDate fechaCompra = LocalDate.parse(scanner.nextLine());
@@ -127,8 +135,16 @@ public class Main
             System.out.println("Cantidad de productos: ");
             int cantidadProductos = Integer.parseInt(scanner.nextLine());
 
+            if (cantidadProductos <= 0) {
+                throw new Exception("La cantidad de productos debe ser mayor que cero");
+            }
+
             System.out.println("Total de la compra: ");
             double totalCompra = Double.parseDouble(scanner.nextLine());
+
+            if (!Double.isFinite(totalCompra) || totalCompra < 0) {
+                throw new Exception("El total debe ser un valor valido y no negativo");
+            }
 
             CompraCliente compra = new CompraCliente(numeroCompra, nombreCliente, fechaCompra, cantidadProductos, totalCompra, "PENDIENTE");
 
@@ -149,6 +165,10 @@ public class Main
             System.out.println("Ingrese el numero de compra: ");
             int numeroCompra = Integer.parseInt(scanner.nextLine());
 
+            if (numeroCompra <= 0) {
+                throw new Exception("El numero de compra debe ser positivo");
+            }
+
             sistema.consultarCompra(numeroCompra);
 
         } catch (Exception e) {
@@ -165,6 +185,10 @@ public class Main
 
             System.out.println("Ingrese el numero de compra: ");
             int numeroCompra = Integer.parseInt(scanner.nextLine());
+
+            if (numeroCompra <= 0) {
+                throw new Exception("El numero de compra debe ser positivo");
+            }
 
             sistema.cancelarCompraPendiente(numeroCompra);
 
