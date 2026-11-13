@@ -6,10 +6,7 @@ import java.util.Scanner;
 import co.edu.udec.aplicacion.SistemaSupermercado;
 import co.edu.udec.modelo.CompraCliente;
 
-/**
- * Hello world!
- *
- */
+
 public class Main 
 {
     public static void main( String[] args )
@@ -86,5 +83,36 @@ public class Main
 
         scanner.close();
         
+    }
+
+    // Registrar una compra por consola
+    public static void registrarCompra(Scanner scanner, SistemaSupermercado sistema) {
+
+        try {
+
+            System.out.println("\n===== REGISTRAR COMPRA =====");
+
+            System.out.println("Numero de copia: ");
+            int numeroCompra = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Nombre del cliente: ");
+            String nombreCliente = scanner.nextLine();
+
+            System.out.println("Fecha de compra (AÑO-MES-DIA): ");
+            LocalDate fechaCompra = LocalDate.parse(scanner.nextLine());
+
+            System.out.println("Cantidad de productos: ");
+            int cantidadProductos = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Total de la compra: ");
+            double totalCompra = Double.parseDouble(scanner.nextLine());
+
+            CompraCliente compra = new CompraCliente(numeroCompra, nombreCliente, fechaCompra, cantidadProductos, totalCompra, "PENDIENTE");
+
+            sistema.registrarCompra(compra);
+
+        } catch (Exception e) {
+            System.out.println("Error al registrar la compra: " + e.getMessage());
+        }
     }
 }
