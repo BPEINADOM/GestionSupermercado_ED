@@ -69,11 +69,19 @@ public class Main
                     break;
 
                 case 8:
-                    System.out.println("Deshacer ultimo procesamiento");
+                    try {
+                        sistema.deshacerUltimoProcesamiento();
+                    } catch (Exception e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
                     break;
 
                 case 9:
-                    System.out.println("Ver cantidad de elementos");
+                    try {
+                        sistema.verCantidadCompras();
+                    } catch (Exception e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
                     break;
 
                 case 10:
