@@ -15,7 +15,7 @@ public class Main
         Scanner scanner = new Scanner(System.in);
         SistemaSupermercado sistema = new SistemaSupermercado();
 
-        int opcion;
+        int opcion = 0;
 
         do {
 
@@ -31,8 +31,17 @@ public class Main
             System.out.println("9. Ver cantidad de elementos");
             System.out.println("10. Salir");
 
-            System.out.println("\nSeleccione una opcion: ");
-            opcion = Integer.parseInt(scanner.nextLine());
+            boolean opcionValida = false;
+
+            while (!opcionValida) {
+                try {
+                    System.out.println("\nSeleccione una opcion: ");
+                    opcion = Integer.parseInt(scanner.nextLine());
+                    opcionValida = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Debe ingresar un numero");
+                }
+            }
 
             switch (opcion) {
 
