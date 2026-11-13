@@ -42,7 +42,7 @@ public class SistemaSupermercado {
         System.out.println("\n===== COMPRAS REGISTRADAS =====");
 
         if (listaGeneral.estaVacia()) {
-            System.out.println("No hay compras regitradas");
+            System.out.println("No hay compras registradas");
             return;
         }
 
@@ -157,7 +157,7 @@ public class SistemaSupermercado {
             throw new Exception("No se encontro una compra pendiente con ese numero");
         }
 
-        System.out.println("Compra cancelada correctmanete");
+        System.out.println("Compra cancelada correctamente");
     }
 
     // Deshacer el ultimo procesamiento realizado
