@@ -61,7 +61,7 @@ public class Main
                     break;
 
                 case 6:
-                    System.out.println("Buscar elemento por codigo");
+                    buscarCompra(scanner, sistema);
                     break;
 
                 case 7:
@@ -119,6 +119,23 @@ public class Main
 
         } catch (Exception e) {
             System.out.println("Error al registrar la compra: " + e.getMessage());
+        }
+    }
+
+    // Buscar una compra desde la consola
+    public static void buscarCompra(Scanner scanner, SistemaSupermercado sistema) {
+
+        try {
+
+            System.out.println("\n===== BUSCAR COMPRA =====");
+
+            System.out.println("Ingrese el numero de compra: ");
+            int numeroCompra = Integer.parseInt(scanner.nextLine());
+
+            sistema.consultarCompra(numeroCompra);
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
