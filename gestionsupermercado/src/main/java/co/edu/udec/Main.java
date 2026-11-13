@@ -37,7 +37,9 @@ public class Main
             switch (opcion) {
 
                 case 1:
-                    System.out.println("Registrar un elemento");
+                    registrarCompra(scanner, sistema);
+                    break;
+                
                 case 2:
                     sistema.verComprasRegistradas();
                     break;
@@ -47,7 +49,11 @@ public class Main
                     break;
 
                 case 4:
-                    System.out.println("Procesar siguiente elemento");
+                    try {
+                        sistema.procesarSiguienteCompra();
+                    } catch (Exception e){
+                        System.out.println("Error: " + e.getMessage());
+                    }
                     break;
 
                 case 5:
@@ -115,4 +121,6 @@ public class Main
             System.out.println("Error al registrar la compra: " + e.getMessage());
         }
     }
+
+
 }
