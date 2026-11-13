@@ -65,7 +65,7 @@ public class Main
                     break;
 
                 case 7:
-                    System.out.println("Cancelar elemento pendiente");
+                    cancelarCompra(scanner, sistema);
                     break;
 
                 case 8:
@@ -133,6 +133,23 @@ public class Main
             int numeroCompra = Integer.parseInt(scanner.nextLine());
 
             sistema.consultarCompra(numeroCompra);
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    // Cancelar una compra desde la consola
+    public static void cancelarCompra(Scanner scanner, SistemaSupermercado sistema) {
+
+        try {
+
+            System.out.println("\n===== CANCELAR COMPRA =====");
+
+            System.out.println("Ingrese el numero de compra: ");
+            int numeroCompra = Integer.parseInt(scanner.nextLine());
+
+            sistema.cancelarCompraPendiente(numeroCompra);
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
